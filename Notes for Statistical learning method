@@ -1,0 +1,137 @@
+#Notes for Statistical learning method updated on 10/29/2018
+Statistical learning: supervised learning, unsupervised learning, semi-supervised learning, reinforcement learning
+
+For supervised learning, chose the best model from hypothesis space, using one evaluation criterion, to get the best prediction for training data and test data under given evaluation criterion.
+
+Def: 
+Input space, feature space, output space
+      Input space, output space, instance, feature vector, feature space, training data, test data, sample
+Union probability distribution
+Hypothesis space 
+
+方法 = 模型+策略+算法
+Mehthod = Model + Strategy + Algorithm
+
+模型(Model)：Hypothesis space
+           Parameter space
+策略(Strategy)
+Loss function/cost function
+    (1) 0-1 loss function
+    (2) quadratic loss function    
+    (3) absolute loss function    
+    (4) logarithmic loss function/log-likelihood loss function
+Empirical risk minimization(ERM)
+算法(algorithm)
+
+Model evaluation and model choosing
+Training error,  test error—generalization ability
+Overfitting and model selection
+Regularization: regularizer, penalty term
+Cross validation: simple cross validation, S-fold cross validation, leave-one-out cross validation
+
+Generalization ability: learning—> unknown data
+Generalization error
+Generalization error bound
+
+Y=f(X), P(Y|X)
+Generative approach & discriminative approach
+Generative model & discriminative model
+
+Classification
+Precision = TP/(TP+FP)
+Recall = TP/(TP+FN)
+
+Tagging
+
+Regression
+Least squares
+
+Chapter 2 Perceptron
+Input: feature vectors of instances
+Output: instance categories(+1/-1)
+Loss function, stochastic gradient descent
+Getting super space S: separating hyperplane
+Linear classification model 
+
+f(x) = sign(w x+b)
+Strategy: 
+Linearly separable data set
+Loss function
+Algorithm: stochastic gradient descent
+(1) chose w0, b0
+(2) choose training data 
+(3) test if yi(wx+b) <= 0 and update w and b
+(4) turn to (2) until no data has been mis classified
+？对偶算法
+
+Chapter 3 k-nearest neighbor (k-NN)
+Input: training data set, new instance
+Output: k instances which are closest to the input instance
+
+Model：cell, class label
+Distance: L-p distance / Minkowski distance
+Choosing K: balance the approximation error and estimation error
+Majority voting rule
+Kd tree: 
+Construct root point, which refers to a square area contains all instances in k-demension.
+Recursively get the partition of k-d space and get child point 
+Until no instances exist in sub area and store the instances on related points.
+
+K-NN with kd tree
+Input: kd tree, target point x
+Output: the k-NN of x
+
+Chapter 4: naive Bayes
+input: n-d set
+Output: class label sets
+
+Method: post-probability max
+Max likelihood estimation
+Learning and classification method:
+Naive bayes algorithm
+Bayes estimation Laplace smoothing 
+
+Generating union probability distribution P(X,Y)
+Getting post probability distribution P(Y|X)
+Training P(X|Y) and P(Y), getting P(X,Y) = P(Y)P(X|Y)
+
+Assumption: independent
+ 		 P(X=x|Y=y) = P(X(n)=x(1),…,X(n)=X(n)|Y=y)
+                 = multiply timesP(X=x(i)|Y=y)
+
+Prediction: P(Y|X) = P(X,Y)/P(X)
+ 	       the input x is then classified to be y with the biggest probability 
+
+
+Chapter 5 Decision tree
+Feature choosing, generating decision tree and cut the leaves
+Classification decision tree: node, directed edge(internal node, leaf node)
+
+Feature choosing:
+Information gain: Entropy, mutual information
+Information gain ratio
+Generating decision tree:
+ID3: get the feature which has bigger information gain
+C4.5 get the feature which has bigger information gain ratio
+
+Cart(classification and regression tree )
+(1) dataset D, get Gini for all the fearture
+(2) Chose the feature which has the smallest Gini to be the best feature and split point. Generate two sub points from present point, allocate training data set to two sub points.
+(3) Recursively use (1) and (2)
+(4) Get Cart
+
+Cart Pruning
+(1) Pruning from the bottom of cart tree until to the root of the cart tree, getting a sub tree series
+(2) Choosing the best Cart tree using cross validation
+
+Chapter 6 Logistic Regression and maximum entropy model
+
+Logistic regression model
+Logistic distribution: CDF and PDF obey some rules
+Binomial logistic regression model: classification model
+	Odds and log odds
+	Parameter estimation: maximum likelihood estimation
+Multi-nominal logistic regression model
+
+Maximum entropy model
+
